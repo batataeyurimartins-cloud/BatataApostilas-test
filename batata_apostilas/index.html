@@ -1,137 +1,34 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Batata Apostilas Hub</title>
-
+  <title>Batata Apostilas</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    body {
-      background: #000;
-      color: white;
-      font-family: Arial, sans-serif;
-    }
-  </style>
 </head>
-<body>
+<body class="bg-black text-white min-h-screen p-8">
 
-  <div class="min-h-screen p-8 bg-gradient-to-b from-black to-zinc-900">
+<h1 class="text-5xl font-bold text-violet-400 mb-10 text-center">
+  Batata Apostilas Hub
+</h1>
 
-    <div class="max-w-7xl mx-auto">
+<div class="max-w-5xl mx-auto grid gap-6 md:grid-cols-2">
 
-      <div class="text-center mb-16">
-        <h1 class="text-6xl font-black bg-gradient-to-r from-violet-400 to-fuchsia-500 bg-clip-text text-transparent mb-6">
-          Batata Apostilas Hub
-        </h1>
+  <a href="https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/6ano/Livro%20do%20estudante%20Amarelo.pdf"
+     target="_blank"
+     class="block p-6 rounded-3xl bg-violet-700 hover:bg-violet-600 transition">
+    <h2 class="text-2xl font-bold">6º Ano • Volume 1</h2>
+    <p class="mt-2 text-zinc-200">Livro do Estudante - Amarelo</p>
+  </a>
 
-        <p class="text-zinc-400 text-xl">
-          Open Future • Ensino Fundamental
-        </p>
-      </div>
+  <a href="https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/6ano/Livro%20do%20estudante%20Roxo.pdf"
+     target="_blank"
+     class="block p-6 rounded-3xl bg-fuchsia-700 hover:bg-fuchsia-600 transition">
+    <h2 class="text-2xl font-bold">6º Ano • Volume 1</h2>
+    <p class="mt-2 text-zinc-200">Livro do Estudante - Roxo</p>
+  </a>
 
-      <input
-        id="search"
-        type="text"
-        placeholder="Pesquisar apostilas..."
-        class="w-full mb-12 p-5 rounded-2xl bg-zinc-900 border border-zinc-700 outline-none text-white"
-      >
-
-      <div id="content" class="space-y-12"></div>
-
-    </div>
-
-  </div>
-
-  <script>
-
-    const data = {
-      "6º Ano": {
-        "Volume 1": [
-          ["Livro do Estudante - Amarelo", "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/6ano/Livro%20do%20estudante%20Amarelo.pdf"],
-          ["Livro do Estudante - Roxo", "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/6ano/Livro%20do%20estudante%20Roxo.pdf"]
-        ],
-        "Volume 2": [
-          ["Matemática & Português", "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/6ano/matematicaportugues6anovol2.pdf"],
-          ["História, Ciências, Geo, Inglês & Projeto", "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/6ano/histciefeoinglprojeto6anovol2.pdf"]
-        ]
-      },
-
-      "7º Ano": {
-        "Volume 1": [
-          ["Livro Principal", "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/7aano/1502147.pdf"],
-          ["Livro Complementar", "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/7aano/sla2.pdf"]
-        ],
-        "Volume 2": [
-          ["História, Ciências, Geo, Inglês & Projeto", "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/7ano/histciengeoinglprojeto7anovol2.pdf"],
-          ["Matemática & Português", "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/7ano/matematicaportugues7anovol2.pdf"]
-        ]
-      }
-    };
-
-    const content = document.getElementById('content');
-    const search = document.getElementById('search');
-
-    function render(filter = '') {
-      content.innerHTML = '';
-
-      Object.entries(data).forEach(([year, volumes]) => {
-
-        let html = `
-          <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-            <h2 class="text-4xl font-black mb-8 text-violet-400">${year}</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-        `;
-
-        Object.entries(volumes).forEach(([volume, books]) => {
-
-          html += `
-            <div class="bg-black rounded-3xl border border-zinc-800 p-6">
-              <h3 class="text-2xl font-bold mb-6">${volume}</h3>
-              <div class="space-y-4">
-          `;
-
-          books.forEach(book => {
-
-            if (!book[0].toLowerCase().includes(filter.toLowerCase())) return;
-
-            html += `
-              <a href="${book[1]}" target="_blank" class="block bg-gradient-to-r from-violet-600 to-fuchsia-600 rounded-2xl p-5 hover:scale-[1.02] transition-all duration-300">
-                <div class="flex items-center justify-between gap-4">
-                  <div>
-                    <div class="text-xs font-bold mb-2">PDF</div>
-                    <div class="text-lg font-bold">${book[0]}</div>
-                  </div>
-
-                  <div class="text-2xl">↗</div>
-                </div>
-              </a>
-            `;
-          });
-
-          html += `
-              </div>
-            </div>
-          `;
-        });
-
-        html += `
-            </div>
-          </div>
-        `;
-
-        content.innerHTML += html;
-      });
-    }
-
-    render();
-
-    search.addEventListener('input', (e) => {
-      render(e.target.value);
-    });
-
-  </script>
+</div>
 
 </body>
 </html>
