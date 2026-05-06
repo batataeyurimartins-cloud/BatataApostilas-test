@@ -1,340 +1,340 @@
-import { useMemo, useState } from "react";
-import { Search, BookOpen, GraduationCap, Sparkles, ExternalLink, Menu } from "lucide-react";
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Batata Apostilas Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-export default function BatataApostilasHub() {
-  const [search, setSearch] = useState("");
-  const [mobileMenu, setMobileMenu] = useState(false);
-
-  const data = {
-    "6º Ano": {
-      "Volume 1": [
-        {
-          title: "Livro do Estudante - Amarelo",
-          link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/6ano/Livro%20do%20estudante%20Amarelo.pdf",
-          color: "from-yellow-400 to-orange-500"
-        },
-        {
-          title: "Livro do Estudante - Roxo",
-          link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/6ano/Livro%20do%20estudante%20Roxo.pdf",
-          color: "from-violet-500 to-fuchsia-600"
-        }
-      ],
-      "Volume 2": [
-        {
-          title: "Matemática & Português",
-          link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/6ano/matematicaportugues6anovol2.pdf",
-          color: "from-cyan-500 to-blue-600"
-        },
-        {
-          title: "História, Ciências, Geo, Inglês & Projeto",
-          link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/6ano/histciefeoinglprojeto6anovol2.pdf",
-          color: "from-emerald-500 to-teal-600"
-        }
-      ]
-    },
-    "7º Ano": {
-      "Volume 1": [
-        {
-          title: "Livro Principal",
-          link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/7aano/1502147.pdf",
-          color: "from-blue-500 to-indigo-600"
-        },
-        {
-          title: "Livro Complementar",
-          link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/7aano/sla2.pdf",
-          color: "from-pink-500 to-rose-600"
-        }
-      ],
-      "Volume 2": [
-        {
-          title: "História, Ciências, Geo, Inglês & Projeto",
-          link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/7ano/histciengeoinglprojeto7anovol2.pdf",
-          color: "from-green-500 to-emerald-600"
-        },
-        {
-          title: "Matemática & Português",
-          link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/7ano/matematicaportugues7anovol2.pdf",
-          color: "from-sky-500 to-cyan-600"
-        }
-      ]
-    },
-    "8º Ano": {
-      "Volume 1": [
-        {
-          title: "Livro Principal",
-          link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/8anno/1502156.pdf",
-          color: "from-purple-500 to-indigo-700"
-        },
-        {
-          title: "Livro Complementar",
-          link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/8anno/sla3.pdf",
-          color: "from-fuchsia-500 to-pink-600"
-        }
-      ],
-      "Volume 2": [
-        {
-          title: "História, Ciências, Geo & Inglês",
-          link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/8ano/histciengeoing8anovol2.pdf",
-          color: "from-lime-500 to-green-600"
-        },
-        {
-          title: "Matemática & Português",
-          link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/8ano/matematicaportugues8anovol2.pdf",
-          color: "from-blue-400 to-cyan-600"
-        }
-      ]
-    },
-    "9º Ano": {
-      "Volume 1": [
-        {
-          title: "Livro Principal",
-          link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/9anno/1502161.pdf",
-          color: "from-orange-500 to-red-600"
-        },
-        {
-          title: "Livro Complementar",
-          link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/9anno/sla1.pdf",
-          color: "from-violet-500 to-purple-700"
-        }
-      ],
-      "Volume 2": [
-        {
-          title: "História, Ciências, Geo, Inglês & Projeto",
-          link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/9ano/histciengeoinglprojeto9anovol2.pdf",
-          color: "from-emerald-500 to-green-700"
-        },
-        {
-          title: "Matemática & Português",
-          link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/9ano/matematicaportugues9anovol2.pdf",
-          color: "from-cyan-500 to-blue-700"
-        }
-      ]
+  <style>
+    * {
+      font-family: 'Inter', sans-serif;
     }
-  };
 
-  const filteredData = useMemo(() => {
-    if (!search) return data;
+    body {
+      background: #000;
+      overflow-x: hidden;
+    }
 
-    const result = {};
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
 
-    Object.entries(data).forEach(([year, volumes]) => {
-      const filteredVolumes = {};
+    .glass {
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
 
-      Object.entries(volumes).forEach(([volume, books]) => {
-        const filteredBooks = books.filter((book) =>
-          book.title.toLowerCase().includes(search.toLowerCase())
-        );
+    .card-hover:hover {
+      transform: translateY(-6px) scale(1.02);
+    }
 
-        if (filteredBooks.length > 0) {
-          filteredVolumes[volume] = filteredBooks;
-        }
-      });
+    .glow {
+      box-shadow: 0 0 80px rgba(139, 92, 246, 0.35);
+    }
+  </style>
+</head>
+<body class="text-white min-h-screen relative">
 
-      if (Object.keys(filteredVolumes).length > 0) {
-        result[year] = filteredVolumes;
-      }
-    });
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.4),transparent_35%)]"></div>
+  <div class="absolute top-0 right-0 w-[700px] h-[700px] bg-violet-700/20 blur-[180px] rounded-full"></div>
+  <div class="absolute inset-0 grid-bg opacity-30"></div>
 
-    return result;
-  }, [search]);
-
-  return (
-    <div className="min-h-screen bg-black text-white overflow-hidden relative">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.4),transparent_35%)]"></div>
-      <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-violet-700/20 blur-[180px] rounded-full"></div>
-
-      <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(rgba(255,255,255,1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,1)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
-
-      <header className="sticky top-0 z-50 backdrop-blur-2xl border-b border-white/10 bg-black/40">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-3xl bg-gradient-to-br from-violet-500 to-fuchsia-600 flex items-center justify-center shadow-2xl shadow-violet-500/40 text-2xl font-black">
-              B
-            </div>
-
-            <div>
-              <h1 className="font-black text-2xl tracking-tight">
-                Batata Apostilas
-              </h1>
-              <p className="text-zinc-400 text-sm">
-                Biblioteca escolar premium
-              </p>
-            </div>
-          </div>
-
-          <div className="hidden md:flex items-center gap-4">
-            <button className="px-5 py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300">
-              Ensino Fundamental
-            </button>
-
-            <button className="px-5 py-3 rounded-2xl bg-violet-500/20 border border-violet-500/30 text-violet-200 hover:bg-violet-500/30 transition-all duration-300">
-              Em breve: Ensino Médio
-            </button>
-          </div>
-
-          <button
-            onClick={() => setMobileMenu(!mobileMenu)}
-            className="md:hidden w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center"
-          >
-            <Menu />
-          </button>
-        </div>
-      </header>
-
-      <main className="relative z-10 max-w-7xl mx-auto px-6 py-16">
-        <section className="text-center mb-16">
-          <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-violet-500/30 bg-violet-500/10 mb-6 backdrop-blur-xl">
-            <Sparkles className="w-4 h-4 text-violet-300" />
-            <span className="text-violet-200 text-sm font-semibold tracking-wide">
-              NOVA EXPERIÊNCIA DE ESTUDOS
-            </span>
-          </div>
-
-          <h1 className="text-6xl md:text-8xl font-black leading-none mb-8 bg-gradient-to-r from-white via-violet-200 to-violet-500 bg-clip-text text-transparent">
-            Open Future
-            <br />
-            Apostilas Hub
-          </h1>
-
-          <p className="max-w-3xl mx-auto text-zinc-400 text-lg md:text-xl leading-relaxed">
-            Acesse apostilas escolares de forma moderna, rápida e organizada.
-            Tudo separado por ano e volume com uma experiência premium.
-          </p>
-        </section>
-
-        <section className="mb-16">
-          <div className="relative max-w-2xl mx-auto">
-            <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-zinc-500 w-6 h-6" />
-
-            <input
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Pesquisar apostilas..."
-              className="w-full h-16 pl-16 pr-6 rounded-3xl bg-white/5 border border-white/10 outline-none text-lg focus:border-violet-500/50 focus:bg-violet-500/5 transition-all duration-300"
-            />
-          </div>
-        </section>
-
-        <section className="grid md:grid-cols-3 gap-6 mb-20">
-          <div className="rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl p-8">
-            <BookOpen className="w-10 h-10 mb-5 text-violet-300" />
-            <h3 className="text-2xl font-bold mb-2">16 Apostilas</h3>
-            <p className="text-zinc-400">
-              Todo o conteúdo organizado e pronto para acessar.
-            </p>
-          </div>
-
-          <div className="rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl p-8">
-            <GraduationCap className="w-10 h-10 mb-5 text-violet-300" />
-            <h3 className="text-2xl font-bold mb-2">Ensino Fundamental</h3>
-            <p className="text-zinc-400">
-              6º ao 9º ano separados por volumes.
-            </p>
-          </div>
-
-          <div className="rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl p-8">
-            <Sparkles className="w-10 h-10 mb-5 text-violet-300" />
-            <h3 className="text-2xl font-bold mb-2">Visual Premium</h3>
-            <p className="text-zinc-400">
-              Design moderno estilo Batata Hub.
-            </p>
-          </div>
-        </section>
-
-        <div className="space-y-16">
-          {Object.entries(filteredData).map(([year, volumes]) => (
-            <section
-              key={year}
-              className="relative rounded-[40px] border border-white/10 bg-white/[0.03] backdrop-blur-2xl p-8 md:p-10 overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-96 h-96 bg-violet-500/10 blur-[120px] rounded-full"></div>
-
-              <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 mb-10">
-                <div>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-200 text-sm mb-4">
-                    <BookOpen className="w-4 h-4" />
-                    Ensino Fundamental
-                  </div>
-
-                  <h2 className="text-5xl font-black bg-gradient-to-r from-white to-violet-300 bg-clip-text text-transparent">
-                    {year}
-                  </h2>
-                </div>
-
-                <div className="px-6 py-3 rounded-2xl bg-black/30 border border-white/10 text-zinc-300 font-medium">
-                  {Object.values(volumes).flat().length} arquivos
-                </div>
-              </div>
-
-              <div className="grid xl:grid-cols-2 gap-8 relative z-10">
-                {Object.entries(volumes).map(([volume, books]) => (
-                  <div
-                    key={volume}
-                    className="rounded-[32px] border border-white/10 bg-black/30 p-6"
-                  >
-                    <div className="flex items-center justify-between mb-8">
-                      <div>
-                        <h3 className="text-3xl font-black">
-                          {volume}
-                        </h3>
-                        <p className="text-zinc-500 mt-1">
-                          Apostilas organizadas
-                        </p>
-                      </div>
-
-                      <div className="w-16 h-16 rounded-3xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-3xl">
-                        📘
-                      </div>
-                    </div>
-
-                    <div className="space-y-5">
-                      {books.map((book, index) => (
-                        <a
-                          key={index}
-                          href={book.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group block"
-                        >
-                          <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-zinc-950/90 hover:border-violet-500/50 transition-all duration-500 hover:scale-[1.015] hover:shadow-2xl hover:shadow-violet-500/20">
-                            <div className={`absolute inset-0 bg-gradient-to-br ${book.color} opacity-20 group-hover:opacity-30 transition-all duration-500`} />
-
-                            <div className="relative p-7 flex items-center justify-between gap-5">
-                              <div>
-                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs uppercase tracking-[0.25em] text-violet-200 font-bold mb-4">
-                                  PDF
-                                </div>
-
-                                <h4 className="text-xl font-black leading-snug group-hover:text-violet-200 transition-colors duration-300">
-                                  {book.title}
-                                </h4>
-                              </div>
-
-                              <div className="min-w-[74px] h-[74px] rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-violet-500/20 group-hover:border-violet-400/30 transition-all duration-300">
-                                <ExternalLink className="w-7 h-7" />
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-          ))}
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-black/40 glass">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-3xl bg-gradient-to-br from-violet-500 to-fuchsia-600 flex items-center justify-center text-2xl font-black glow">
+          B
         </div>
 
-        <footer className="mt-24 border-t border-white/10 pt-10 text-center">
-          <h3 className="text-3xl font-black mb-3 bg-gradient-to-r from-white to-violet-300 bg-clip-text text-transparent">
-            Mais conteúdos em breve
-          </h3>
+        <div>
+          <h1 class="text-2xl font-black">Batata Apostilas</h1>
+          <p class="text-zinc-400 text-sm">Biblioteca Escolar Premium</p>
+        </div>
+      </div>
 
-          <p className="text-zinc-500 text-lg">
-            Ensino Médio • Simulados • Exercícios • Materiais Extras
-          </p>
-        </footer>
-      </main>
+      <div class="hidden md:flex items-center gap-4">
+        <button class="px-5 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300">
+          Ensino Fundamental
+        </button>
+
+        <button class="px-5 py-3 rounded-2xl border border-violet-500/30 bg-violet-500/20 text-violet-200">
+          Ensino Médio em breve
+        </button>
+      </div>
     </div>
-  );
-}
+  </header>
+
+  <main class="relative z-10 max-w-7xl mx-auto px-6 py-16">
+
+    <section class="text-center mb-16">
+      <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-violet-500/30 bg-violet-500/10 glass mb-6">
+        <span class="text-violet-200 text-sm font-semibold tracking-widest">
+          OPEN FUTURE • BATATA HUB
+        </span>
+      </div>
+
+      <h1 class="text-6xl md:text-8xl font-black leading-none mb-8 bg-gradient-to-r from-white via-violet-200 to-violet-500 bg-clip-text text-transparent">
+        Apostilas
+        <br>
+        Open Future
+      </h1>
+
+      <p class="max-w-3xl mx-auto text-zinc-400 text-lg md:text-xl leading-relaxed">
+        Uma plataforma moderna para acessar apostilas escolares de forma rápida, organizada e bonita.
+      </p>
+    </section>
+
+    <section class="mb-20">
+      <div class="relative max-w-2xl mx-auto">
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Pesquisar apostilas..."
+          class="w-full h-16 px-6 rounded-3xl border border-white/10 bg-white/5 glass text-lg outline-none focus:border-violet-500/50 focus:bg-violet-500/5 transition-all duration-300"
+        />
+      </div>
+    </section>
+
+    <section class="grid md:grid-cols-3 gap-6 mb-20">
+      <div class="rounded-[32px] border border-white/10 bg-white/5 glass p-8">
+        <h3 class="text-3xl font-black mb-3">16 Apostilas</h3>
+        <p class="text-zinc-400">Todo o conteúdo separado por ano e volume.</p>
+      </div>
+
+      <div class="rounded-[32px] border border-white/10 bg-white/5 glass p-8">
+        <h3 class="text-3xl font-black mb-3">6º ao 9º Ano</h3>
+        <p class="text-zinc-400">Ensino Fundamental completo.</p>
+      </div>
+
+      <div class="rounded-[32px] border border-white/10 bg-white/5 glass p-8">
+        <h3 class="text-3xl font-black mb-3">Visual Premium</h3>
+        <p class="text-zinc-400">Design inspirado no Batata Hub.</p>
+      </div>
+    </section>
+
+    <div id="booksContainer" class="space-y-16"></div>
+
+    <footer class="mt-24 border-t border-white/10 pt-10 text-center pb-16">
+      <h3 class="text-4xl font-black mb-3 bg-gradient-to-r from-white to-violet-300 bg-clip-text text-transparent">
+        Mais conteúdos em breve
+      </h3>
+
+      <p class="text-zinc-500 text-lg">
+        Ensino Médio • Simulados • Exercícios • Extras
+      </p>
+    </footer>
+
+  </main>
+
+  <script>
+    const data = {
+      "6º Ano": {
+        "Volume 1": [
+          {
+            title: "Livro do Estudante - Amarelo",
+            link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/6ano/Livro%20do%20estudante%20Amarelo.pdf",
+            color: "from-yellow-400 to-orange-500"
+          },
+          {
+            title: "Livro do Estudante - Roxo",
+            link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/6ano/Livro%20do%20estudante%20Roxo.pdf",
+            color: "from-violet-500 to-fuchsia-600"
+          }
+        ],
+        "Volume 2": [
+          {
+            title: "Matemática & Português",
+            link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/6ano/matematicaportugues6anovol2.pdf",
+            color: "from-cyan-500 to-blue-600"
+          },
+          {
+            title: "História, Ciências, Geo, Inglês & Projeto",
+            link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/6ano/histciefeoinglprojeto6anovol2.pdf",
+            color: "from-emerald-500 to-teal-600"
+          }
+        ]
+      },
+      "7º Ano": {
+        "Volume 1": [
+          {
+            title: "Livro Principal",
+            link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/7aano/1502147.pdf",
+            color: "from-blue-500 to-indigo-600"
+          },
+          {
+            title: "Livro Complementar",
+            link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/7aano/sla2.pdf",
+            color: "from-pink-500 to-rose-600"
+          }
+        ],
+        "Volume 2": [
+          {
+            title: "História, Ciências, Geo, Inglês & Projeto",
+            link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/7ano/histciengeoinglprojeto7anovol2.pdf",
+            color: "from-green-500 to-emerald-600"
+          },
+          {
+            title: "Matemática & Português",
+            link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/7ano/matematicaportugues7anovol2.pdf",
+            color: "from-sky-500 to-cyan-600"
+          }
+        ]
+      },
+      "8º Ano": {
+        "Volume 1": [
+          {
+            title: "Livro Principal",
+            link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/8anno/1502156.pdf",
+            color: "from-purple-500 to-indigo-700"
+          },
+          {
+            title: "Livro Complementar",
+            link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/8anno/sla3.pdf",
+            color: "from-fuchsia-500 to-pink-600"
+          }
+        ],
+        "Volume 2": [
+          {
+            title: "História, Ciências, Geo & Inglês",
+            link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/8ano/histciengeoing8anovol2.pdf",
+            color: "from-lime-500 to-green-600"
+          },
+          {
+            title: "Matemática & Português",
+            link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/8ano/matematicaportugues8anovol2.pdf",
+            color: "from-blue-400 to-cyan-600"
+          }
+        ]
+      },
+      "9º Ano": {
+        "Volume 1": [
+          {
+            title: "Livro Principal",
+            link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/9anno/1502161.pdf",
+            color: "from-orange-500 to-red-600"
+          },
+          {
+            title: "Livro Complementar",
+            link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/9anno/sla1.pdf",
+            color: "from-violet-500 to-purple-700"
+          }
+        ],
+        "Volume 2": [
+          {
+            title: "História, Ciências, Geo, Inglês & Projeto",
+            link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/9ano/histciengeoinglprojeto9anovol2.pdf",
+            color: "from-emerald-500 to-green-700"
+          },
+          {
+            title: "Matemática & Português",
+            link: "https://pub-761ea6e47fa74db3a9b6ffc7656d8e73.r2.dev/OpenFuture/volume2/9ano/matematicaportugues9anovol2.pdf",
+            color: "from-cyan-500 to-blue-700"
+          }
+        ]
+      }
+    };
+
+    const container = document.getElementById('booksContainer');
+    const searchInput = document.getElementById('searchInput');
+
+    function renderBooks(search = '') {
+      container.innerHTML = '';
+
+      Object.entries(data).forEach(([year, volumes]) => {
+        const yearSection = document.createElement('section');
+        yearSection.className = 'rounded-[40px] border border-white/10 bg-white/[0.03] glass p-8 md:p-10 relative overflow-hidden';
+
+        let volumeHTML = '';
+
+        Object.entries(volumes).forEach(([volume, books]) => {
+          const filteredBooks = books.filter(book =>
+            book.title.toLowerCase().includes(search.toLowerCase())
+          );
+
+          if (filteredBooks.length === 0) return;
+
+          volumeHTML += `
+            <div class="rounded-[32px] border border-white/10 bg-black/30 p-6">
+              <div class="flex items-center justify-between mb-8">
+                <div>
+                  <h3 class="text-3xl font-black">${volume}</h3>
+                  <p class="text-zinc-500 mt-1">Apostilas organizadas</p>
+                </div>
+
+                <div class="w-16 h-16 rounded-3xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-3xl">
+                  📘
+                </div>
+              </div>
+
+              <div class="space-y-5">
+                ${filteredBooks.map(book => `
+                  <a href="${book.link}" target="_blank" class="group block">
+                    <div class="relative overflow-hidden rounded-[28px] border border-white/10 bg-zinc-950/90 transition-all duration-500 card-hover hover:border-violet-500/50 hover:shadow-2xl hover:shadow-violet-500/20">
+
+                      <div class="absolute inset-0 bg-gradient-to-br ${book.color} opacity-20 group-hover:opacity-30 transition-all duration-500"></div>
+
+                      <div class="relative p-7 flex items-center justify-between gap-5">
+                        <div>
+                          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs uppercase tracking-[0.25em] text-violet-200 font-bold mb-4">
+                            PDF
+                          </div>
+
+                          <h4 class="text-xl font-black leading-snug group-hover:text-violet-200 transition-colors duration-300">
+                            ${book.title}
+                          </h4>
+                        </div>
+
+                        <div class="min-w-[74px] h-[74px] rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl group-hover:bg-violet-500/20 group-hover:border-violet-400/30 transition-all duration-300">
+                          ↗
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        });
+
+        if (!volumeHTML) return;
+
+        yearSection.innerHTML = `
+          <div class="absolute top-0 right-0 w-96 h-96 bg-violet-500/10 blur-[120px] rounded-full"></div>
+
+          <div class="relative z-10 flex flex-wrap items-center justify-between gap-4 mb-10">
+            <div>
+              <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-200 text-sm mb-4">
+                Ensino Fundamental
+              </div>
+
+              <h2 class="text-5xl font-black bg-gradient-to-r from-white to-violet-300 bg-clip-text text-transparent">
+                ${year}
+              </h2>
+            </div>
+          </div>
+
+          <div class="grid xl:grid-cols-2 gap-8 relative z-10">
+            ${volumeHTML}
+          </div>
+        `;
+
+        container.appendChild(yearSection);
+      });
+    }
+
+    renderBooks();
+
+    searchInput.addEventListener('input', (e) => {
+      renderBooks(e.target.value);
+    });
+  </script>
+
+</body>
+</html>
